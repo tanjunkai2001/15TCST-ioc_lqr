@@ -21,7 +21,7 @@ Q=sdpvar(n,n,'full'); R=sdpvar(m,m,'full') ;P=sdpvar(n,n,'full') ;P1=sdpvar(n,n,
 c1=[transpose(A)*P+P*A+(P*B*K)+Q==0];
 c2=[transpose(A+B*K)*P+P*(A+B*K)+transpose(K)*R*K+Q==0];
 c3=[transpose(B)*P+R*K==0];
-c4=[transpose(A)*P1+P1*transpose(A)<Q];
+c4=[transpose(A)*P1+P1*transpose(A)<=Q]; % 这里需要避免使用"strict inequality"，参考YALMIP的一篇blog：https://yalmip.github.io/inside/strictinequalities/
 c5=[eye(m+n)<=[[Q zeros(n,m)];[zeros(m,n) R]]<=a.*eye(m+n)];
 constraints=[c1,c2,c3,c4,c5];
 optimize(constraints,a^2)
