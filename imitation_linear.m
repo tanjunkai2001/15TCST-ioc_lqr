@@ -15,7 +15,7 @@ else
     error('system is not controllable');
 end
 xo = [50; 0];% initial condition
-k=[0,0];
+% k=[0,0];
 
 x1=[];x2=[]; %trajectories list
 ti=[]; %times list
