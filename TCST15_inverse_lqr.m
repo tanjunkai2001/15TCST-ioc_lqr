@@ -84,6 +84,7 @@ k=lqr(A,B,Q,R) % output of inverse Q R
 % K               %given input 
 
 
+% norm(k-K)
 
 
 
