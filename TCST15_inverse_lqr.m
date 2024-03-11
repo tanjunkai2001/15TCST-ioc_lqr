@@ -44,7 +44,7 @@ Ke = [2.362 -1.32 1.186 1.836
      4.293 -0.8472 3.789 1.538
      -2.252 1.339 -2.081 -1.312
      -2.707 -0.06996 -2.062 -0.72633];% + randn(n,m);
-Ke = K + 0.01*randn(n,m)
+% Ke = K + 0.01*randn(n,m)
 norm(K-Ke)
 
 % clear Q R;
@@ -56,12 +56,12 @@ a=sdpvar(1,1,'full');
 
 e = 0.02
 c1=[A'*P + P*A - P*B*Ke + Q == 0];
-c1=[-e <= A'*P + P*A - P*B*Ke + Q <= e];
+% c1=[-e <= A'*P + P*A - P*B*Ke + Q <= e];
 
 % c2=[(A-B*Ke)'*P + P*(A-B*Ke) + Ke'*R*Ke + Q == 0];
 % c2=[P >= 0];
 c3=[B'*P - R*Ke == 0];
-c3=[-e <= B'*P - R*Ke <= e];
+% c3=[-e <= B'*P - R*Ke <= e];
 
 % c4=[A'*P1 + P1*A' <= Q]; % 这里需要避免使用"strict inequality"，参考YALMIP的一篇blog：https://yalmip.github.io/inside/strictinequalities/
 
